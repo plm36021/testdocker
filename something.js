@@ -1,8 +1,12 @@
 var http = require('http');
+const PORT = 8000;
+
 function onRequest(request, response){
-  response.writeHead(200,{'Content-Type': text/plain'});
-  response.write('Hello World');
-  response.end();
+  response.end('Hello ${process.Platform}');
 }
 
-http.createServer(onRequest).listen
+var server = http.createServer(onRequest);
+
+server.listen(PORT, function(){
+  console.log('${process.env.NODE_ENV} server listening on port: ${PORT}. CTRL-C zo exit');
+});
